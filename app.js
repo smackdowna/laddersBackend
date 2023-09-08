@@ -1,7 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
 import ErrorMiddleWare from "./middleware/Error.js";
-import cors from "cors";
 
 config({
   path: "./config/config.env",
@@ -17,10 +16,13 @@ app.use(
   })
 );
 app.use(cookieParser);
-app.use(cors({
-    credentials:true,
-    methods:["GET","POST","PUT","DELETE"]
-}))
+
+
+
+
+app.get("/",(req,res)=>{
+  res.send("<h1>Server is working</h1>")
+})
 
 //Importing & using Routes
 import plan from "./routes/planRoute.js";
@@ -33,5 +35,3 @@ app.use("/api/v1", user);
 export default app;
 
 app.use(ErrorMiddleWare);
-
-app.get("/",(req,res)=>res.send(`Server is working fine`));
