@@ -16,12 +16,6 @@ app.use(
     extended: true,
   })
 );
-app.use(cookieParser);
-app.use(cors({
-    
-    credentials:true,
-    methods:["GET","POST","PUT","DELETE"]
-}))
 
 //Importing & using Routes
 import plan from "./routes/planRoute.js";
@@ -30,7 +24,6 @@ import cookieParser from "cookie-parser";
 
 app.use("/api/v1", plan);
 app.use("/api/v1", user);
-app.use(cookieParser);
 
 export default app;
 
