@@ -30,6 +30,7 @@ import cookieParser from "cookie-parser";
 
 app.use("/api/v1", plan);
 app.use("/api/v1", user);
+app.use(cookieParser);
 
 export default app;
 
